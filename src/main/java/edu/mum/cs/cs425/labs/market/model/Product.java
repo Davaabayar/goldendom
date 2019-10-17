@@ -14,6 +14,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.PositiveOrZero;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -36,6 +37,7 @@ public class Product {
 	@NotNull(message = "* Quantity in stock is required")
     @Digits(integer = 9, fraction = 0, message = "* Quantity must be a positive, integral value")
     @PositiveOrZero(message = "* Quantity must be a positive, integral value")
+	//@Pattern(regexp= "^[0-9]*$", message = "* Quantity must be a positive, integral value")
 	private int quantity;
 	
 	@NotNull(message = "* Unit Price is required")
@@ -47,7 +49,7 @@ public class Product {
 	private LocalDate dateSupplied;
 
 	@ManyToOne()
-	@JoinColumn(name = "supplierId", nullable = false)
+	@JoinColumn(name = "supplier_id", nullable = false)
 	@NotNull(message = "* Supplier is required")
 	private Supplier supplier;
 	

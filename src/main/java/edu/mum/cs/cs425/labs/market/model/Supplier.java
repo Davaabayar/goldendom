@@ -23,7 +23,7 @@ import javax.validation.constraints.Pattern;
 public class Supplier {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String supplierId;
+	private Long supplierId;
 	
 	@NotNull(message = "* Required")
 	@Digits(integer = 9, fraction = 0, message = "* Supplier number must be numeric; and a positive, integral value")
@@ -45,12 +45,27 @@ public class Supplier {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public String getSupplierId() {
+
+	public Long getSupplierId() {
 		return supplierId;
 	}
-	public void setSupplierId(String supplierId) {
+
+
+	public void setSupplierId(Long supplierId) {
 		this.supplierId = supplierId;
 	}
+
+
+	public List<Product> getProducts() {
+		return products;
+	}
+
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
+
+
 	public String getSupplierNumber() {
 		return supplierNumber;
 	}
