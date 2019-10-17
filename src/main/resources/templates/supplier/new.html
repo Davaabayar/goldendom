@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Add new supplier</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
+</head>
+<body>
+	<!-- Navigation -->
+	<div th:replace="~{/home/index :: navigation}"></div>
+	<div class="container">
+		<h1>New Supplier Form</h1>
+		<form method="post" action = "/market/supplier/new" th:object = "${supplier}">
+			<fieldset>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="supplierNumber">Supplier Number</label>
+							<span th:if="${#fields.hasErrors('supplierNumber')}" th:errors="*{supplierNumber}"
+								class="alert alert-danger"></span>
+							<input name="supplierNumber" class = "form-control" type="text" th:value="${supplier.supplierNumber}">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="name">Supplier Name</label>
+							<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+								class="alert alert-danger"></span>
+							<input name="name" class="form-control" type="text" th:value="${supplier.name}">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="contactNumber">Contact  Phone Number</label>
+							<span th:if="${#fields.hasErrors('contactNumber')}" th:errors="*{contactNumber}"
+								class="alert alert-danger"></span>
+							<input name="contactNumber" class="form-control" type="text" th:value="${supplier.contactNumber}">
+							<small class="form-text text-muted">Enter a phone number in valid format. (123) 456-7890</small>
+						</div>
+					</div>
+				</div>
+				 <div style="float:right;">
+                    <a href="/market/supplier/list" class="btn btn-lg btn-warning">Cancel</a>&nbsp;&nbsp;&nbsp;
+                    <button id="btnSubmit" type="submit" class="btn btn-lg btn-success">Save Supplier</button>
+                </div>
+			</fieldset>
+		</form>
+	</div>
+	<footer style="background:#eee; padding:15px 0" th:fragment="footer1">
+		<div class="container">
+			CS425 - solution by Davaa <span class="float-right">October 2019</span>
+		</div>
+	</footer>	
+</body>
+</html>

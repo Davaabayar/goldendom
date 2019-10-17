@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Add new supplier</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
+</head>
+<body>
+	<!-- Navigation -->
+	<div th:replace="~{/home/index :: navigation}"></div>
+	<div class="container">
+		<h1>New Product Form</h1>
+		<form method="post" action = "/market/product/new" th:object = "${product}">
+			<fieldset>
+				<div class="row">
+					<div class="col-md-6">
+						<label for = "productNumber">Product Number</label>
+						<span th:if="${#fields.hasErrors('productNumber')}" th:errors="*{productNumber}"
+                                  class="alert alert-danger"></span>
+						<input name = "productNumber" type="text" class="form-control"  th:value="${product.productNumber}">
+					</div>
+					<div class="col-md-6">
+						<label for = "quantity">Quantity in Stock</label>
+						<span th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}"
+                                  class="alert alert-danger"></span>
+						<input name = "quantity" type="text" class="form-control" th:value="${product.quantity}">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<label for = "name">Name</label>
+						<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+                                  class="alert alert-danger"></span>
+						<input name = "name" type="text" class="form-control" th:value="${product.name}">
+					</div>
+					<div class="col-md-6">
+					
+                         <label for="supplier">Supplier:</label>
+                         <span th:if="${#fields.hasErrors('supplier')}" th:errors="*{supplier}"
+                               class="alert alert-danger"></span>
+                         <select name="supplier" id="supplier" class="form-control" required="required">
+                             <option value="">Select a supplier</option>
+                             <option th:each="supplier : ${suppliers}" th:value="${supplier.supplierId}" th:text="${supplier.name}"></option>
+                         </select>
+                     </div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<label for = "unitprice">Unit Price</label>
+						<span th:if="${#fields.hasErrors('unitprice')}" th:errors="*{unitprice}"
+                                  class="alert alert-danger"></span>
+						<input name = "unitprice" type="text" class="form-control" placeholder = "0.0"  th:value="${product.unitprice}">
+					</div>
+					<div class="col-md-6">
+						<label for = "dateSupplied">Date supplied</label>
+						<span th:if="${#fields.hasErrors('dateSupplied')}" th:errors="*{dateSupplied}"
+                                  class="alert alert-danger"></span>
+						<input name = "dateSupplied" type="text" class="form-control" placeholder="yyyy-mm-dd"  th:value="${product.dateSupplied}">
+					</div>
+				</div>
+				<div class="row" style="margin-top:20px;">
+					<div class="col-md-12">
+						<a href="/market/product/list" class="btn btn-warning">Cancel</a>
+						<button type="submit" class="btn btn-success">Add product</button>
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+	<footer style="background:#eee; padding:15px 0" th:fragment="footer1">
+		<div class="container">
+			CS425 - solution by Davaa <span class="float-right">October 2019</span>
+		</div>
+	</footer>	
+</body>
+</html>

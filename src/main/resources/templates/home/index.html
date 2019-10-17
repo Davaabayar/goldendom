@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Golden Dome Market</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light mb40" id="mainNav" th:fragment="navigation" style="background: #2196F3; font-weight: 700;">
+			<div class="container">
+				<a class="navbar-brand" href="/market/home">MUM Golden Dome Market : : SRM System</a>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item br"><a class="nav-link"
+							href="/market/supplier/list">Supplier</a></li> 						
+						<li class="nav-item"><a class="nav-link"
+							href="/market/product/list">Products</a></li>
+					</ul>
+				</div>
+			</div>
+	</nav>
+	<div class="container">
+		<!-- Navigation -->
+		<h1>Welcome to Golden Dome Market</h1>
+		<p>
+		MUM's local grocery store, the Golden Dome Market (GDM), has hired you to design and develop a Supplier Relationship Management (SRM) system for them, which they will be using to manage the inventory (list) of Products that they stock, along with the various Suppliers who do supply them with the products. They want you to implement a basic web application for this purpose.
+ 		</p>
+ 		<p>
+ 		<strong>Here is the simple solution model for the system:</strong>
+		<ul>
+			<li>A Product is supplied by a Supplier.</li>
+			<li>And, a Supplier can supply many Products.</li>
+		</ul>
+		</p>
+		<p>
+			<strong>Here are the attributes for the 2 entities:	</strong></br>	 
+			Product: productId:long (PK), productNumber:long, name:String, unitPrice:double, quantityInStock:int, dateSupplied:date<br/>
+			Supplier: supplierId:int (PK), supplierNumber:int,  name:String, contactPhoneNumber:String<br/>		 
+			<strong>For this question, you are expected to do the following:</strong><br/>			 
+			1. Sketch a simple UML Static (class) model for the solution.<br/>			 
+			2. Using the tools, technologies and frameworks we have learnt about in this CS425 course, including Spring Web MVC, JPA, etc. (or some other Enterprise Web application development platform/tool(s) of your choice), implement a working web application for GDM. You may use any database of your choice.
+			 
+			<strong>You are expected to implement only the following use-cases:</strong>
+			<ul> 
+				<li>1. Display a homepage which presents a set of menu options for Products, Suppliers.</li>
+				<li>2. Display list of Suppliers (Allows the store manager to view a list of all the suppliers in the system)</li>
+				<li>3. Add a new Supplier (Allows the store manager to add a new Supplier into the system)</li>
+				<li>4. Display list of Products (Allows the store manager to view a list of all the products in the system)</li>
+				<li>5. Add a new Product (Allows the store manager to add a new Product into the system)</li>
+			</ul>
+			Shown below are sample User Interfaces for the use-cases. Note: Your own UI design does NOT necessarily have to look exactly like these samples. But your UIs should be correct/complete and should contain all the necessary data fields, as shown.
+		
+		</p>
+	</div>
+	<footer style="background:#eee; padding:15px 0" th:fragment="footer1">
+		<div class="container">
+			CS425 - solution by Davaa <span class="float-right">October 2019</span>
+		</div>
+	</footer>	
+</body>
+</html>
